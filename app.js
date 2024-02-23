@@ -10,19 +10,19 @@ const mongoose=require('mongoose');
 
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
-app.use(authjwt());
+// app.use(authjwt());
 app.use('/uploads', express.static('/uploads'));
 
-app.use((error,req,res,next)=>{
-    if(error.name==='unauthorizedError'){
-       return res.status(401).json({message: "The user is not authorised"});
-    }
+// app.use((error,req,res,next)=>{
+//     if(error.name==='unauthorizedError'){
+//        return res.status(401).json({message: "The user is not authorised"});
+//     }
 
-    if(error.name==='ValidationError'){
-       return  res.status(401).json({message: error});
-    }
-    return  res.status(401).send(error.message);
-});
+//     if(error.name==='ValidationError'){
+//        return  res.status(401).json({message: error});
+//     }
+//     return  res.status(401).send(error.message);
+// });
 
 
 

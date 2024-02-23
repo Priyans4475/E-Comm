@@ -18,10 +18,11 @@ router.get('/',async(req,res)=>
 router.post('/',async(req,res)=>{
     
 
+
     let user=new User({
         name:req.body.name,
         email:req.body.email,
-        passwordhash:bcrypt.hashSync(req.body.password,10),
+        passwordhash:req.body.password,
         phone:req.body.phone,
         isAdmin:req.body.isAdmin,
         street:req.body.street,
